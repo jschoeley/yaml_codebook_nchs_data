@@ -1,0 +1,361 @@
+---
+codebook:
+    date    : 2020-04-16
+    author  : Jonas Schöley
+    contact : jschoeley@health.sdu.dk
+collection:
+    name        : Cohort Linked Birth / Infant Death Data Set
+    source      : Department of Health and Human Services, Centers for Disease Control and Prevention, National Center for Health Statistics, Division of Vital Statistics
+    date        : 2016
+    author      : National Center for Health Statistics
+    description : The linked birth and infant death data set is a valuable tool for monitoring and exploring the complex inter-relationships between infant death and risk factors present at birth. In the linked birth and infant death data set the information from the death certificate is linked to the information from the birth certificate for each infant under 1 year of age who dies in the United States, Puerto Rico, The Virgin Islands, and Guam. The purpose of the linkage is to use the many additional variables available from the birth certificate to conduct more detailed analyses of infant mortality patterns. The linked files include information from the birth certificate such as age, race, and Hispanic origin of the parents, birth weight, period of gestation, plurality, prenatal care usage, maternal education, live birth order, marital status, and maternal smoking, linked to information from the death certificate such as age at death and underlying and multiple cause of death.
+    location    : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/
+dictionary:
+    sex89: &sex89
+        '1': 'Male'
+        '2': 'Female'
+    sex03: &sex03
+        'M': 'Male'
+        'F': 'Female'
+    race_and_hispanic_orig_of_mother: &race_and_hispanic_orig_of_mother
+        '1': 'Mexican'
+        '2': 'Puerto Rican'
+        '3': 'Cuban'
+        '4': 'Central or South American'
+        '5': 'Other and unknown Hispanic'
+        '6': 'Non-Hispanic White'
+        '7': 'Non-Hispanic Black'
+        '8': 'Non-Hispanic other races'
+        '9': 'Origin unknown or not stated'
+files:
+    Cohort1989:
+        description : 1989 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO89.zip
+        filename    : LinkCO89USden.dat
+        variables   : &var_89
+            race_and_hispanic_orig_of_mother:
+                label          : Race and Hispanic Origin of Mother
+                start          : 34
+                end            : 34
+                type           : factor
+                format         :
+                scale          : nominal
+                categories     : *race_and_hispanic_orig_of_mother
+                missing_values : 9
+            date_of_delivery_y:
+                label          : Year of Delivery
+                start          : 7
+                end            : 10
+                type           : integer
+                format         :
+                scale          : date
+                categories     :
+                missing_values :
+            date_of_delivery_m:
+                label          : Month of Delivery
+                start          : 70
+                end            : 71
+                type           : integer
+                format         :
+                scale          : date
+                categories     :
+                missing_values :
+            gestation_at_delivery_w:
+                label          : Gestation at Delivery in Weeks
+                start          : 73
+                end            : 74
+                type           : integer
+                format         :
+                scale          : metric
+                categories     :
+                missing_values : 99
+            sex:
+                label          : Sex of Infant
+                start          : 78
+                end            : 78
+                type           : factor
+                format         :
+                scale          : nominal
+                categories     : *sex89
+                missing_values :
+            age_at_death_d:
+                label          : Age at Death in Days
+                start          : 213
+                end            : 215
+                type           : integer
+                format         :
+                scale          : metric
+                categories     :
+                missing_values :
+    Cohort1990:
+        description : 1990 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO90.zip
+        filename    : LinkCO90USden.dat
+        variables   : *var_89
+    Cohort1991:
+        description : 1991 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO91.zip
+        filename    : LinkCO91USden.dat
+        variables   : *var_89
+    Cohort1995:
+        description : 1995 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO95US.zip
+        filename    : LinkCO95USDen.dat
+        variables   : &var_95
+            race_and_hispanic_orig_of_mother:
+                label          : Race and Hispanic Origin of Mother
+                start          : 34
+                end            : 34
+                type           : factor
+                format         :
+                scale          : nominal
+                categories     : *race_and_hispanic_orig_of_mother
+                missing_values : 9
+            date_of_delivery_y:
+                label          : Year of Delivery
+                start          : 7
+                end            : 10
+                type           : integer
+                format         :
+                scale          : date
+                categories     :
+                missing_values :
+            date_of_delivery_m:
+                label          : Month of Delivery
+                start          : 205
+                end            : 206
+                type           : integer
+                format         :
+                scale          : date
+                categories     :
+                missing_values :
+            gestation_at_delivery_w:
+                label          : Gestation at Delivery in Weeks
+                start          : 71
+                end            : 72
+                type           : integer
+                format         :
+                scale          : metric
+                categories     :
+                missing_values : 99
+            sex:
+                label          : Sex of Infant
+                start          : 79
+                end            : 79
+                type           : factor
+                format         :
+                scale          : nominal
+                categories     : *sex89
+                missing_values :
+            age_at_death_d:
+                label          : Age at Death in Days
+                start          : 211
+                end            : 213
+                type           : integer
+                format         :
+                scale          : metric
+                categories     :
+                missing_values :
+    Cohort1996:
+        description : 1996 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO96US.zip
+        filename    : LinkCO96USDen.dat
+        variables   : *var_95
+    Cohort1997:
+        description : 1997 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO97US.zip
+        filename    : LinkCO97USDen.dat
+        variables   : *var_95
+    Cohort1998:
+        description : 1998 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO98US.zip
+        filename    : LinkCO98USDen.dat
+        variables   : *var_95
+    Cohort1999:
+        description : 1999 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO99US.zip
+        filename    : LinkCO99USDen.dat
+        variables   : *var_95
+    Cohort2000:
+        description : 2000 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO00US.zip
+        filename    : LinkCO00USDen.dat
+        variables   : *var_95
+    Cohort2001:
+        description : 2001 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO01US.zip
+        filename    : LinkCO01USDen.dat
+        variables   : *var_95
+    Cohort2002:
+        description : 2002 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO02US.zip
+        filename    : LinkCO02USDEN.dat
+        variables   : *var_95
+    Cohort2003:
+        description : 2003 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO03US.zip
+        filename    : VS03LKBC.USDENPUB
+        variables   : &var_03
+            race_and_hispanic_orig_of_mother:
+                label          : Race and Hispanic Origin of Mother
+                start          : 149
+                end            : 149
+                type           : factor
+                format         :
+                scale          : nominal
+                categories     : *race_and_hispanic_orig_of_mother
+                missing_values : 9
+            date_of_delivery_y:
+                label          : Year of Delivery
+                start          : 15
+                end            : 18
+                type           : integer
+                format         :
+                scale          : date
+                categories     :
+                missing_values :
+            date_of_delivery_m:
+                label          : Month of Delivery
+                start          : 19
+                end            : 20
+                type           : integer
+                format         :
+                scale          : date
+                categories     :
+                missing_values :
+            gestation_at_delivery_w:
+                label          : Gestation at Delivery in Weeks
+                start          : 451
+                end            : 452
+                type           : integer
+                format         :
+                scale          : metric
+                categories     :
+                missing_values : 99
+            sex:
+                label          : Sex of Infant
+                start          : 436
+                end            : 436
+                type           : factor
+                format         :
+                scale          : nominal
+                categories     : *sex03
+                missing_values :
+            age_at_death_d:
+                label          : Age at Death in Days
+                start          : 755
+                end            : 757
+                type           : integer
+                format         :
+                scale          : metric
+                categories     :
+                missing_values :
+    Cohort2004:
+        description : 2004 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO04US.zip
+        filename    : VS04LKBC.DUSDENOM
+        variables   : &var_04
+            race_and_hispanic_orig_of_mother:
+                label          : Race and Hispanic Origin of Mother
+                start          : 149
+                end            : 149
+                type           : factor
+                format         :
+                scale          : nominal
+                categories     : *race_and_hispanic_orig_of_mother
+                missing_values : 9
+            date_of_delivery_y:
+                label          : Year of Delivery
+                start          : 15
+                end            : 18
+                type           : integer
+                format         :
+                scale          : date
+                categories     :
+                missing_values :
+            date_of_delivery_m:
+                label          : Month of Delivery
+                start          : 19
+                end            : 20
+                type           : integer
+                format         :
+                scale          : date
+                categories     :
+                missing_values :
+            gestation_at_delivery_w:
+                label          : Gestation at Delivery in Weeks
+                start          : 451
+                end            : 452
+                type           : integer
+                format         :
+                scale          : metric
+                categories     :
+                missing_values : 99
+            sex:
+                label          : Sex of Infant
+                start          : 436
+                end            : 436
+                type           : factor
+                format         :
+                scale          : nominal
+                categories     : *sex03
+                missing_values :
+            age_at_death_d:
+                label          : Age at Death in Days
+                start          : 872
+                end            : 874
+                type           : integer
+                format         :
+                scale          : metric
+                categories     :
+                missing_values :
+    Cohort2005:
+        description : 2005 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO05US.zip
+        filename    : VS05LKBC.DUSDENOM
+        variables   : *var_04
+    Cohort2006:
+        description : 2006 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO06US.zip
+        filename    : VS06LKBC.DUSDENOM
+        variables   : *var_04
+    Cohort2007:
+        description : 2007 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO07US.zip
+        filename    : VS07LKBC.DUSDENOM
+        variables   : *var_04
+    Cohort2008:
+        description : 2008 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO08US.zip
+        filename    : VS08LKBC.DUSDENOM
+        variables   : *var_04
+    Cohort2009:
+        description : 2009 US Territory Cohort Linked Infant Deaths and Births (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO09US.zip
+        filename    : VS09LKBC.PublicUse.DUSDENOM
+        variables   : *var_04
+    Cohort2010:
+        description : 2010 US Territory Cohort Linked Infant Deaths (Denominator File)
+        format      : Fixed Width ASCII Text
+        url         : ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/cohortlinkedus/LinkCO10US.zip
+        filename    : VS10LKBC.PubilcUse.DUSDENOM
+        variables   : *var_04
+...
